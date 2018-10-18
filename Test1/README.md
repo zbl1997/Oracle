@@ -33,7 +33,8 @@ HAVING d.department_name in ('IT' ,'Sales');
 ### 查询结果
 > ![](https://github.com/zbl1997/Oracle/blob/master/Test1/Images/laji1.png)
 ### 优化指导
-无
+> 无
+
 3.自定义语句
 ---
 ```
@@ -46,6 +47,7 @@ GROUP BY department_name
 ```
 ### 查询结果
 > ![](https://github.com/zbl1997/Oracle/blob/master/Test1/Images/test1.png)
+
 优化指导
 ---
 取消where语句处大量的笛卡尔积操作
