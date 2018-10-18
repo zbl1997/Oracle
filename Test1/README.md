@@ -10,6 +10,7 @@ and d.department_name in ('IT' ,'Sales')
 GROUP BY department_name;
 查询结果
 ---
+> ![](www.github.com/zbl1997/)
 查询语句1
 ---
 优化指导
