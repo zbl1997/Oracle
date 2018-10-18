@@ -1,4 +1,5 @@
 # oracle 实验一
+=
 # 1.查询语句一
 SELECT d.department_name ,count(e.job_id)as "部门总人数" ,
 avg(e.salary)as "平均工资"
