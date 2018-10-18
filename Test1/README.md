@@ -46,7 +46,7 @@ and d.department_name = 'IT' or d.department_name = 'Sales'
 GROUP BY department_name 
 ```
 ### 查询结果
-> ![](https://github.com/zbl1997/Oracle/blob/master/Test1/Images/test1.png)
+> ![](https://github.com/zbl1997/Oracle/blob/master/Test1/Images/test3.png)
 
 优化指导
 ---
