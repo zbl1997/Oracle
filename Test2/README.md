@@ -3,26 +3,26 @@
 > 以system登录到pdborcl，创建角色csy_view和用户csy_user，并授权和分配空间：
 ```
 $ sqlplus system/123@pdborcl
-SQL> CREATE ROLE csy_view;
+SQL> CREATE ROLE zbl_view;
 Role created.
-SQL> GRANT connect,resource,CREATE VIEW TO csy_view;
+SQL> GRANT connect,resource,CREATE VIEW TO zbl_view;
 Grant succeeded.
-SQL> CREATE USER csy_user IDENTIFIED BY 123 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;
+SQL> CREATE USER zbl_user IDENTIFIED BY 123 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;
 User created.
-SQL> ALTER USER csy_user QUOTA 50M ON users;
+SQL> ALTER USER zbl_user QUOTA 50M ON users;
 User altered.
-SQL> GRANT csy_view TO csy_user;
+SQL> GRANT zbl_view TO zbl_user;
 Grant succeeded.
 SQL> exit
 ```
 ### 语句“ALTER USER new_user QUOTA 50M ON users;”是指授权new_user用户访问users表空间，空间限额是50M。
 
 ## 二.
-> 新用户csy_user连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
+> 新用户zbl_user连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
 ```
-$ sqlplus csy_user/123@pdborcl
+$ sqlplus zbl_user/123@pdborcl
 SQL> show user;
-  USER is "CSY_USER"
+  USER is "ZBL_USER"
 SQL> CREATE TABLE mytable (id number,name varchar(50));
 Table created.
 SQL> INSERT INTO mytable(id,name)VALUES(1,'zhang');
@@ -41,10 +41,10 @@ Grant succeeded.
 SQL>exit
 ```
 ## 三.
-> 用户hr连接到pdborcl，查询csy_user授予它的视图myview
+> 用户hr连接到pdborcl，查询zbl_user授予它的视图myview
 ```
 $ sqlplus hr/123@pdborcl
-SQL> SELECT * FROM csy_user.myview;
+SQL> SELECT * FROM zbl_user.myview;
 NAME
 --------------------------------------------------
 zhang
