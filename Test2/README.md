@@ -1,6 +1,6 @@
-实验2：用户及权限管理
----
-# 一.以system登录到pdborcl，创建角色csy_view和用户csy_user，并授权和分配空间：
+# 实验2：用户及权限管理
+## 一.以system登录到pdborcl，创建角色csy_view和用户csy_user，并授权和分配空间：
+```
 $ sqlplus system/123@pdborcl
 SQL> CREATE ROLE csy_view;
 Role created.
@@ -13,6 +13,7 @@ User altered.
 SQL> GRANT csy_view TO csy_user;
 Grant succeeded.
 SQL> exit
+```
 语句“ALTER USER new_user QUOTA 50M ON users;”是指授权new_user用户访问users表空间，空间限额是50M。
 
 二.新用户csy_user连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
