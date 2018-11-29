@@ -39,7 +39,7 @@ create or replace PACKAGE BODY MyPack IS
 END MyPack;
 ```
 ## 包创建及设置函数过程结果
-
+> ![](https://github.com/zbl1997/Oracle/blob/master/test5/1.png)
 ## 调用函数及过程
 ```
 select count(*) from orders;
@@ -55,3 +55,4 @@ BEGIN
 END;
 ```
 ## 过程调用结果
+> ![](https://github.com/zbl1997/Oracle/blob/master/test5/2.png)
