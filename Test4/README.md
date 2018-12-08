@@ -12,9 +12,6 @@ ALTER USER zhubolin QUOTA UNLIMITED ON USERS02;
 ALTER USER zhubolin QUOTA UNLIMITED ON USERS03;
 ALTER USER zhubolin ACCOUNT UNLOCK;
 ```
-## 结果
-
-## 分配表空间结果
 
 ## 为用户分配权限
 ```
@@ -22,20 +19,13 @@ GRANT "CONNECT" TO zhubolin WITH ADMIN OPTION;
 GRANT "RESOURCE" TO zhubolin WITH ADMIN OPTION;
 ALTER USER zhubolin DEFAULT ROLE "CONNECT","RESOURCE";
 ```
-结果
 
-分配权限结果
-
-系统权限分配
+## 系统权限分配
+```
 GRANT CREATE VIEW TO xiaoqingyu WITH ADMIN OPTION;
-结果
-
-系统权限授权结果
-
-添加实验所需表和相应触发器、序列、视图
-具体代码查看同级目录下实验四.sql文件
-
-插入初始化数据
+```
+## 插入初始化数据
+```
 INSERT INTO xiaoqingyu.DEPARTMENTS(DEPARTMENT_ID,DEPARTMENT_NAME) values (1,'总经办');
 INSERT INTO xiaoqingyu.EMPLOYEES(EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTMENT_ID)
   VALUES (1,'李董事长',NULL,NULL,to_date('2010-1-1','yyyy-mm-dd'),50000,NULL,1);
@@ -119,18 +109,12 @@ begin
     END IF;
   end loop;
 end;
-结果
+```
 
-1).插入时间
 
-批量插入订单数据时间
-
-2).插入结果
-
-批量插入订单数据结果
-
-查询数据
-查询单条数据
+## 查询数据
+###查询单条数据
+```
 --查询数据 id值从10012到20021
 select * from xiaoqingyu.ORDERS where  order_id=10012;
 select * from xiaoqingyu.ORDER_DETAILS where  order_id=10012;
@@ -145,6 +129,5 @@ WITH A (EMPLOYEE_ID,NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,SALARY,MANAGER_ID,DEPARTME
 SELECT * FROM A;
 --或
 SELECT * FROM employees START WITH EMPLOYEE_ID = 11 CONNECT BY PRIOR EMPLOYEE_ID = MANAGER_ID;
-查询结果
+```
 
-递归查询员工结果
